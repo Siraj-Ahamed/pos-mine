@@ -2,12 +2,16 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const dotenv = require("dotenv");
+const productRoutes = require("./routes/product.route.js");
 
 dotenv.config();
 
 // middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// routes
+app.use("/api/products", productRoutes);
 
 app.get("/", (req, res) => {
     res.send("Hi from baceknd");
