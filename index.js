@@ -2,11 +2,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const dotenv = require("dotenv");
+const cors = require('cors'); // Import cors package
 const productRoutes = require("./routes/product.route.js");
 
 dotenv.config();
 
 // middlewares
+app.use(cors()); // Enable CORS for all routes
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
